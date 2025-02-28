@@ -1,0 +1,63 @@
+<div class="offcanvas-md offcanvas-start sticky-top blurrable" tabindex="-1" id="left-menu" aria-labelledby="left-menu-label">
+
+    <div class="offcanvas-header">
+        <div class="row">
+            <div class="col-10 text-start" >
+                <h5 class="offcanvas-title" id="left-menu-label">
+                    <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="logo-icon">
+                    Prompt FLow
+                </h5>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn-close  align-items-center" data-bs-dismiss="offcanvas" data-bs-target="#left-menu" aria-label="Close"></button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <aside class="col-lg-2">
+        <!-- Menu à gauche -->
+        <nav id="left-menu-nav">
+            {{ menu | raw }}
+        </nav>
+    </aside>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const offcanvasMenu = document.getElementById("left-menu");
+        const navbarToggler = document.querySelector(".navbar-toggler");
+
+        // Écouteur pour l'affichage du menu
+        offcanvasMenu.addEventListener("show.bs.offcanvas", function () {
+            console.log("Offcanvas is being shown");
+            // Ajoutez ou modifiez des classes dynamiquement ici
+            offcanvasMenu.classList.add("left-menu-is-visible");
+        });
+
+        // Écouteur pour lorsque le menu est affiché complètement
+        offcanvasMenu.addEventListener("shown.bs.offcanvas", function () {
+            console.log("Offcanvas is now fully visible");
+        });
+
+        // Écouteur pour la fermeture du menu
+        offcanvasMenu.addEventListener("hide.bs.offcanvas", function () {
+            console.log("Offcanvas is being hidden");
+            // Supprimez ou modifiez des classes ici
+            offcanvasMenu.classList.remove("left-menu-is-visible");
+        });
+
+        // Écouteur pour lorsque le menu est complètement masqué
+        offcanvasMenu.addEventListener("hidden.bs.offcanvas", function () {
+            console.log("Offcanvas is now fully hidden");
+        });
+
+        // Optionnel : Réagir au clic sur le bouton
+        navbarToggler.addEventListener("click", function () {
+            console.log("Navbar toggler clicked");
+        });
+    });
+
+
+</script>

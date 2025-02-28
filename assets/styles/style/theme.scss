@@ -1,0 +1,301 @@
+//// Import des variables Bootstrap
+//@import "bootstrap/scss/functions";
+//@import "bootstrap/scss/variables";
+//// Import des styles Bootstrap modifiés
+//@import "bootstrap/scss/bootstrap";
+
+@import "header.scss";
+@import "jumbotron.scss";
+@import "main.scss";
+@import "menu.scss";
+@import "search.scss";
+@import "scroll_spy.scss";
+@import "prisme.scss";
+
+// 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
+:root {
+  --color-title: #18181BFF; // var(--color-title)
+  --color-border: #E4E4E7FF; // var(--color-title)
+  --color-menu-text: #71717AFF; // var(--color-menu-text)
+  --color-text-highlight: #cf2e2e; // var(--color-text-highlight)
+  // introduction /  on this page / main page title
+  --size-menu-title: 0.9em; // var(--size-menu-title)
+  --size-menu-item: 0.9em; // var(--size-menu-item)
+
+}
+
+
+body {
+  font-family: system-ui, Arial, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  background-color: #FFFFFF;
+}
+
+.logo-text, #left-menu-label {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #cf2e2e;
+}
+
+.task-list {
+  list-style: none; /* Supprime les puces */
+  padding: 0; /* Supprime le padding par défaut */
+  margin: 0; /* Supprime la marge par défaut */
+}
+
+#left-menu, #right-sidebar {
+  max-width: 220px;
+  margin-top: 3px;
+  position: sticky;
+  top: 70px;
+  overflow-y: auto;
+}
+
+#main-content {
+  width: 66.66666667%; /** col-sm-8 */
+}
+
+
+.offcanvas-md, .offcanvas-sm {
+  background-color: white !important;
+}
+
+
+
+
+.logo-text {
+  display: block;
+}
+
+.navbar-toggler {
+  display: none;
+}
+
+@media (max-width: 1400px) {
+  .container {
+    max-width: 95%;
+  }
+
+  #right-sidebar {
+    display: none
+  }
+  #main-content {
+    width: 80%;
+
+  }
+
+}
+@media (max-width: 1200px) {
+
+  #main-content {
+    width: 76% !important;
+    margin-right:0;
+    margin-left:0;
+  }
+}
+@media (max-width: 998px) {
+  #main-content {
+    width: 100% !important;
+  }
+
+  .container {
+    max-width: 95%;
+  }
+
+  #left-menu {
+    display: none;
+  }
+  .logo-text {
+    display: none !important;
+  }
+  .navbar-toggler {
+    display: block !important;
+  }
+  #left-menu, #right-sidebar {
+    margin-top: 15px !important;
+  }
+  .left-menu-is-visible {
+    display: block !important;
+    height: 900px;
+    position: fixed !important;
+    top: 60px !important;
+    left: 0;
+    z-index: 5000 !important;
+    width: 350px !important;
+    max-width: none !important;
+
+  }
+
+  .left-menu-is-visible .offcanvas-header {
+    display: block !important;
+  }
+  .left-menu-is-visible .offcanvas-header h5 {
+    width: 250px;
+  }
+
+}
+//@media (min-width: 998px) {
+//  .container {
+//    max-width: 100% !important;
+//
+//  }
+//  #main-content {
+//    width: 30% !important;
+//
+//  }
+//}
+
+
+.offcanvas-header h5, .offcanvas-header button {
+  line-height: 1.5em;
+  align-items: center !important;
+}
+
+#left-menu button {
+  margin-top: 0;
+}
+
+
+
+
+
+.header-search {
+  margin-top: 5px;
+  width: 400px;
+  color: #a1a1aa;
+}
+
+
+.md-admonition {
+  padding: .2em .2em .2em .7em;
+  border-left: .25em solid;
+  border-radius: 10px;
+  font-size: 0.9em;
+
+  p {
+    margin: 1em 1.5em 1em 1.5em;
+  }
+
+  .md-admonition-label {
+    margin-bottom: .5em;
+    padding-left: 1.5em;
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    font-weight: 700;
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  &.md-admonition-note {
+    border-color: #4CB3D4FF;
+    background-color: #EEF9FDFF;
+
+    .md-admonition-label {
+      color: #193c47;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' fill='%23193c47' aria-hidden='true'%3E%3Cpath d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'%3E%3C/path%3E%3C/svg%3E");
+    }
+  }
+
+  &.md-admonition-tip {
+    border-color: #009400;
+    background-color: #00a40026;
+    color: #003100;
+
+    .md-admonition-label {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23003100' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath d='M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z'%3E%3C/path%3E%3C/svg%3E");
+    }
+
+  }
+
+  &.md-admonition-important {
+    border-color: #8250df;
+    background-color: rgba(130, 80, 223, 0.18);
+    color: #25173CFF;
+
+    .md-admonition-label {
+
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2325173CFF' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath d='M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z'%3E%3C/path%3E%3C/svg%3E");
+    }
+  }
+
+  &.md-admonition-warning {
+    border-color: #9a6700;
+    background-color: #FFF3CDFF;
+    color: #3A2700FF;
+
+    .md-admonition-label {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233A2700FF' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath d='M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z'%3E%3C/path%3E%3C/svg%3E");
+    }
+  }
+
+  &.md-admonition-caution {
+    border-color: #d1242f;
+    background-color: #F5C6CBFF;
+    color: #721C24FF;
+
+    .md-admonition-label {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23721C24FF' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath d='M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'%3E%3C/path%3E%3C/svg%3E");
+    }
+  }
+}
+
+/** TAB ITEM STYLE */
+.nav-tabs {
+  .nav-item {
+    .nav-link {
+      color: #71717AFF;
+    }
+
+    .active {
+      color: #CF2E2EFF;
+      font-weight: bold;
+      background-color: rgb(246, 246, 246);
+      border-bottom: none;
+      position: relative;
+      top: 2px;
+    }
+  }
+}
+
+.tab-content {
+  div.tab-pane {
+    padding: 1.5em;
+    border-left: solid 1px #dee2e6;
+    border-right: solid 1px #dee2e6;
+    border-bottom: solid 1px #dee2e6;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  .active {
+    background-color: rgb(246, 246, 246);
+  }
+
+
+}
+
+/** BLOCKQUOTE ITEM */
+.default-blockquote {
+  position: relative;
+  font-style: italic;
+  background: #f8f9fa;
+  border-left: 5px solid #0d6efd;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+
+  :before {
+    content: "“";
+    font-size: 3rem;
+    color: #0d6efd;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-family: serif;
+  }
+
+  p {
+    margin-left: 1.5em;
+  }
+
+}

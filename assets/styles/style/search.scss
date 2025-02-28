@@ -1,0 +1,45 @@
+.modal-content {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: none;
+}
+
+.blurrable {
+  transition: filter 0.3s ease;
+}
+
+.blurred {
+  filter: blur(10px) !important;
+}
+
+.modal-backdrop.in {
+  opacity: 1 !important;
+}
+
+.search-results {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.search-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  cursor: pointer;
+  i {
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+  span {
+    margin-left: 0.5rem;
+    color: #6c757d; /* Couleur grise pour le texte */
+  }
+  :hover {
+    background-color: #e9ecef; /* Couleur de fond au survol */
+  }
+}

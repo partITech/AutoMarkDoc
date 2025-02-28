@@ -1,0 +1,85 @@
+/**
+JUMBOTRON :  only on index page
+ */
+
+
+#jumbotron {
+  background-color: #301300;
+  color: #cf2e2e;
+  /*background: linear-gradient(to bottom, #4a1f02, rgb(12, 5, 0));*/
+  background: linear-gradient(to bottom, #4a1f02, rgb(12, 5, 0));
+
+  #hero h1 {
+    color: white;
+  }
+  #hero p {
+    color: #ff5600;
+    letter-spacing: -.025em;
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+  }
+  #hero button.get-started {
+    color: #301300;
+    font-weight: 600;
+    font-size: .875rem;
+    line-height: 1.5rem;
+    padding: .5rem 1rem;
+    background-color: rgb(253 186 116);
+    border-radius: 9999px;
+    text-decoration: none;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+  }
+
+  #hero button.get-started:hover {
+    background-color: rgb(251 146 60);
+  }
+  #hero button.get-started:active {
+    background-color: #ff5600;
+  }
+  #hero button.view-on-github {
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: .875rem;
+    line-height: 1.5rem;
+    padding: .5rem 1rem;
+    background-color: #27272AFF;
+    border-radius: 9999px;
+    text-decoration: none;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+  }
+
+  #hero button.view-on-github:hover {
+    background-color: #4c4c50;
+  }
+
+  #hero button.view-on-github:active {
+    background-color: #828283;
+    color: #27272AFF;
+  }
+
+  code[class*="language-"], pre[class*="language-"] {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace !important;
+    font-size: 1em;
+  }
+
+
+  pre[class*="language-"], :not(pre) > code[class*="language-"] {
+    background: #22222261;
+    border: 1px solid #ff5600;
+    margin: 25px 0 50px 0;
+    padding: 0 10px 0 15px;
+    text-align: left;
+  }
+
+  pre[class*="language-"] {
+    /*box-shadow: 0 4px 6px -2px rgb(82 81 81);*/
+    overflow: hidden;
+    border-radius: 15px;
+    text-shadow: none !important;
+    padding: 1.2em;
+  }
+}

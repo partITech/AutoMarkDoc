@@ -1,0 +1,38 @@
+/**
+HEADER
+ */
+header {
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
+  height: 75px;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1050 !important;
+  color: #cf2e2e;
+  box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+
+  #header-right-links {
+    color: #a1a1aa;
+    margin: 5px;
+  }
+
+  #header-right-links li {
+    padding: 0 5px;
+  }
+
+  #header-right-links #github-icon-header svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  #header-right-links #search-icon-header svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .navbar-toggler, .logo-text {
+    margin-left: 25px;
+  }
+
+}
+
