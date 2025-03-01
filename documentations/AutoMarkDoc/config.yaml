@@ -1,0 +1,27 @@
+projectName: "AutoMarkDoc"
+defaultDoc: "introduction.md"
+logoUrl: "/images/logo.svg"
+projectSource: "https://github.com/partITech/AutoMarkDoc"
+jumbotronSourceLinkCodeLink: "https://github.com/partITech/AutoMarkDoc"
+enableSearch: true
+jumbotron: true
+jumbotronHeader: "AutoMarkDoc, Effortless Documentation for Open Source"
+jumbotronTextLine: "Automatically transform your project's Markdown files into a sleek, elegant website with modern Bootstrap styling."
+jumbotronGetStartedLabel: "Get started"
+jumbotronGetStartedLink: "#main-content"
+jumbotronSourceLinkCodeLabel: "View on GitHub"
+jumbotronCodeLang: "md"
+jumbotronCodeContent: |
+  # AutoMarkDoc
+  Transform your Markdown documentation into a modern website effortlessly.
+
+  ## Installation
+  Install AutoMarkDoc via Composer:
+
+  ```sh
+  gh co https://github.com/partITech/AutoMarkDoc
+  composer install
+  symfony console importmap:install
+  symfony console sass:build
+  ```
+  This will transform your Markdown files into a Bootstrap-powered website.

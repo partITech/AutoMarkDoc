@@ -1,0 +1,28 @@
+<div id="jumbotron" class="blurrable">
+    <div class="text-center">
+        <div class="container py-3">
+            <div class="row align-items-center">
+                <!-- Left Section -->
+                <div class="col-md-6 text-start" id="hero">
+                    <h1 class="mb-4">{{ jumbotronHeader }}</h1>
+                    <p>
+                        {{ jumbotronTextLine }}
+                    </p>
+                    <p>
+                        <button type="button" class="btn get-started">
+                            <a href="{{ jumbotronGetStartedLink }}">{{ jumbotronGetStartedLabel }}</a>
+                        </button>
+                        <button type="button" class="btn view-on-github">
+                            <a href="{{ jumbotronSourceLinkCodeLink  }}">{{ jumbotronSourceLinkCodeLabel }}</a>
+                        </button>
+                    </p>
+                </div>
+                <!-- Right Section -->
+                <div class="col-md-6 text-center">
+                    <!-- PHP Code Block with Syntax Highlighting -->
+                    <pre><code class="language-{{ jumbotronCodeLang }}">{{ jumbotronCodeContent }}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -19,30 +19,31 @@ JUMBOTRON :  only on index page
     line-height: 2.5rem;
   }
   #hero button.get-started {
-    color: #301300;
-    font-weight: 600;
-    font-size: .875rem;
-    line-height: 1.5rem;
     padding: .5rem 1rem;
     background-color: rgb(253 186 116);
     border-radius: 9999px;
-    text-decoration: none;
     box-sizing: border-box;
     border: none;
     cursor: pointer;
+
+    &:hover {
+      background-color: #FB923CFF;
+    }
+    &:active {
+      background-color: #ff5600;
+    }
+
+    > a{
+      color: #301300;
+      font-weight: 600;
+      font-size: .875rem;
+      line-height: 1.5rem;
+      text-decoration: none;
+    }
   }
 
-  #hero button.get-started:hover {
-    background-color: rgb(251 146 60);
-  }
-  #hero button.get-started:active {
-    background-color: #ff5600;
-  }
   #hero button.view-on-github {
-    color: #FFFFFF;
-    font-weight: 600;
-    font-size: .875rem;
-    line-height: 1.5rem;
+
     padding: .5rem 1rem;
     background-color: #27272AFF;
     border-radius: 9999px;
@@ -50,16 +51,25 @@ JUMBOTRON :  only on index page
     box-sizing: border-box;
     border: none;
     cursor: pointer;
+
+    &:hover {
+      background-color: #4c4c50;
+    }
+
+    &:active {
+      background-color: #828283;
+      color: #27272AFF;
+    }
+
+    a{
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: .875rem;
+      line-height: 1.5rem;
+      text-decoration: none;
+    }
   }
 
-  #hero button.view-on-github:hover {
-    background-color: #4c4c50;
-  }
-
-  #hero button.view-on-github:active {
-    background-color: #828283;
-    color: #27272AFF;
-  }
 
   code[class*="language-"], pre[class*="language-"] {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace !important;

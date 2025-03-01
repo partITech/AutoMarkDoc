@@ -5,20 +5,22 @@
 {% block body %}
 
     <!-- Header -->
-    {% include 'doc_flow/header.html.twig' %}
+    {% include 'AutoMarkDoc/header.html.twig' %}
     <!-- Jumbotron (homepage) -->
-    {% include 'doc_flow/jumbotron.html.twig' %}
+    {% if jumbotron %}
+        {% include 'AutoMarkDoc/jumbotron.html.twig' %}
+    {% endif %}
     <div class="container text-center">
         <div class="row align-items-start">
             <!-- Left menu -->
-            {% include 'doc_flow/left_menu.html.twig' %}
+            {% include 'AutoMarkDoc/left_menu.html.twig' %}
             <!-- Main content -->
-            {% include 'doc_flow/main_content.html.twig' %}
+            {% include 'AutoMarkDoc/main_content.html.twig' %}
             <!-- Right headers index -->
-            {% include 'doc_flow/right_index.html.twig' %}
+            {% include 'AutoMarkDoc/right_index.html.twig' %}
         </div>
     </div>
-    {% include 'doc_flow/search.html.twig' %}
+    {% include 'AutoMarkDoc/search.html.twig' %}
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 {% endblock %}

@@ -34,9 +34,8 @@ class MarkdownRenderer
         private readonly CommonMarkConverter $converter,
         private readonly Filesystem $filesystem,
         private readonly Finder $finder,
-        private readonly string $documentationPath)
-    {
-    }
+        private readonly string $documentationPath
+    ){}
 
     public function getMarkdownFiles(): array
     {
@@ -166,13 +165,20 @@ class MarkdownRenderer
         $converter = new MarkdownConverter($environment);
 
         $content = file_get_contents($filePath);
+        if(empty($content)) {
+            return $this->emptyContent();
+        }
         try {
             $html = $converter->convert($content);
         } catch (Throwable) {
-            return ['toc' => null, 'content' => null];
+            return $this->emptyContent();
         }
 
         return $this->separateTableOfContents($html);
+    }
+
+    private function emptyContent(): array{
+        return ['toc' => null, 'content' => null];
     }
 
     private function separateTableOfContents($html): array

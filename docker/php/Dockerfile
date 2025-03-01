@@ -27,5 +27,6 @@ RUN mkdir -p /var/www/var/cache /var/www/var/log \
 COPY php.ini /usr/local/etc/php/conf.d/custom.ini
 
 WORKDIR /var/www
+RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
 
 CMD ["php-fpm"]

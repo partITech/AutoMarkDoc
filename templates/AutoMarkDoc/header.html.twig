@@ -2,8 +2,8 @@
 
         <!-- Left Section -->
         <div class="logo-text">
-            <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="logo-icon">
-            <span class="ms-2">Prompt Flow</span>
+            <img src="{{ logoUrl }}" alt="Logo" class="logo-icon">
+            <span class="ms-2">{{ projectName }}</span>
         </div>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#left-menu"
@@ -11,15 +11,15 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-
-        <!-- Center Section -->
-        <div class="d-md-flex d-none header-search " id="header-search">
-            <button class="search-button" data-bs-toggle="modal" data-bs-target="#searchModal">
-                <i class="bi-search"></i>
-                <span>Search...</span>
-            </button>
-        </div>
-
+        {% if enableSearch %}
+            <!-- Center Section -->
+            <div class="d-md-flex d-none header-search " id="header-search">
+                <button class="search-button" data-bs-toggle="modal" data-bs-target="#searchModal">
+                    <i class="bi-search"></i>
+                    <span>Search...</span>
+                </button>
+            </div>
+        {% endif %}
 
     <!-- Right Section -->
     <div class="d-flex ">
@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li class="nav-item col-6 col-lg-auto" id="github-icon-header">
-                <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/partITech/prompt-flow"
+                <a class="nav-link py-2 px-0 px-lg-2" href="{{ projectSource }}"
                    target="_blank" rel="noopener">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 499.36" role="img"><title>
                             GitHub</title>
