@@ -15,7 +15,7 @@ final class DocFlowController extends AbstractController
     public function index(Request $request, MarkdownRenderer $markdownRenderer, DocumentationConfigLoader $docConfigLoader): Response
     {
         $title = $request->query->get('title', 'Index');
-        
+
         $projectName = $docConfigLoader->get('projectName', 'DemoProject');
         $logoUrl = $docConfigLoader->get('logoUrl', '/images/logo.svg');
         $projectSource = $docConfigLoader->get('projectSource', 'https://github.com/partITech/DemoProject');
@@ -33,6 +33,11 @@ final class DocFlowController extends AbstractController
 
 
         $currentLink = $request->query->get('file', $defaultDoc);
+
+        if($jumbotron && $currentLink!=$defaultDoc){
+            $jumbotron = false;
+        }
+
         $menu = $markdownRenderer->getMenu(currentLink: $currentLink, baseUrl: '/');
         $content = $markdownRenderer->renderMarkdownFile($currentLink);
 
