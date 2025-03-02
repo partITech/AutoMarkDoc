@@ -1,13 +1,4 @@
 /vendor/
-/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd
-/.idea/commandlinetools/Symfony_28_02_2025_19_04.xml
-/.idea/.gitignore
-/.idea/DocFlow.iml
-/.idea/modules.xml
-/.idea/php.xml
-/.idea/phpunit.xml
-/.idea/vcs.xml
-/.idea/watcherTasks.xml
+/.idea/
 /var/
 /assets/vendor/
-/.idea/symfony2.xml

@@ -10,7 +10,7 @@ jumbotronTextLine: "Automatically transform your project's Markdown files into a
 jumbotronGetStartedLabel: "Get started"
 jumbotronGetStartedLink: "#main-content"
 jumbotronSourceLinkCodeLabel: "View on GitHub"
-jumbotronCodeLang: "md"
+jumbotronCodeLang: "markdown"
 jumbotronCodeContent: |
   # AutoMarkDoc
   Transform your Markdown documentation into a modern website effortlessly.
