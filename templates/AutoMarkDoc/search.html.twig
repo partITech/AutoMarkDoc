@@ -13,55 +13,55 @@
     </div>
 </div>
 
-<!-- Custom JS -->
-<script>
-    // Exemple de données pour la recherche
-    const data = [
-        "Paris",
-        "Marseille",
-        "Lyon",
-        "Toulouse",
-        "Nice",
-        "Nantes",
-        "Strasbourg",
-        "Montpellier",
-        "Bordeaux",
-        "Lille"
-    ];
+{#<!-- Custom JS -->#}
+{#<script>#}
+{#    // Exemple de données pour la recherche#}
+{#    const data = [#}
+{#        "Paris",#}
+{#        "Marseille",#}
+{#        "Lyon",#}
+{#        "Toulouse",#}
+{#        "Nice",#}
+{#        "Nantes",#}
+{#        "Strasbourg",#}
+{#        "Montpellier",#}
+{#        "Bordeaux",#}
+{#        "Lille"#}
+{#    ];#}
 
-    // Gestion de la recherche dynamique
-    document.getElementById("searchInput").addEventListener("input", function () {
-        const query = this.value.toLowerCase();
-        const results = data.filter(item => item.toLowerCase().includes(query));
-        displayResults(results);
-    });
+{#    // Gestion de la recherche dynamique#}
+{#    document.getElementById("searchInput").addEventListener("input", function () {#}
+{#        const query = this.value.toLowerCase();#}
+{#        const results = data.filter(item => item.toLowerCase().includes(query));#}
+{#        displayResults(results);#}
+{#    });#}
 
-    function displayResults(results) {
-        const searchResults = document.getElementById("searchResults");
-        searchResults.innerHTML = results
-            .map(item => `<div class="border-bottom py-2">${item}</div>`)
-            .join("");
-    }
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const modal = document.getElementById("searchModal");
-        const blurrableElements = document.querySelectorAll(".blurrable");
-        // Ajouter une classe de flou à tous les éléments lorsqu'on ouvre la modal
-        modal.addEventListener("show.bs.modal", () => {
-            blurrableElements.forEach(el => el.classList.add("blurred"));
-        });
-
-        // Retirer la classe de flou lorsqu'on ferme la modal
-        modal.addEventListener("hidden.bs.modal", () => {
-            blurrableElements.forEach(el => el.classList.remove("blurred"));
-        });
+{#    function displayResults(results) {#}
+{#        const searchResults = document.getElementById("searchResults");#}
+{#        searchResults.innerHTML = results#}
+{#            .map(item => `<div class="border-bottom py-2">${item}</div>`)#}
+{#            .join("");#}
+{#    }#}
 
 
-        modal.addEventListener('click', function (event) {
-            if (event.target.classList.contains('modal')) {
-                bootstrap.Modal.getInstance(this).hide(); // Fermer la modal
-            }
-        });
-    });
-</script>
+{#    document.addEventListener("DOMContentLoaded", function () {#}
+{#        const modal = document.getElementById("searchModal");#}
+{#        const blurrableElements = document.querySelectorAll(".blurrable");#}
+{#        // Ajouter une classe de flou à tous les éléments lorsqu'on ouvre la modal#}
+{#        modal.addEventListener("show.bs.modal", () => {#}
+{#            blurrableElements.forEach(el => el.classList.add("blurred"));#}
+{#        });#}
+
+{#        // Retirer la classe de flou lorsqu'on ferme la modal#}
+{#        modal.addEventListener("hidden.bs.modal", () => {#}
+{#            blurrableElements.forEach(el => el.classList.remove("blurred"));#}
+{#        });#}
+
+
+{#        modal.addEventListener('click', function (event) {#}
+{#            if (event.target.classList.contains('modal')) {#}
+{#                bootstrap.Modal.getInstance(this).hide(); // Fermer la modal#}
+{#            }#}
+{#        });#}
+{#    });#}
+{#</script>#}

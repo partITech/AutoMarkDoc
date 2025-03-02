@@ -15,8 +15,7 @@ final class DocFlowController extends AbstractController
     public function index(Request $request, MarkdownRenderer $markdownRenderer, DocumentationConfigLoader $docConfigLoader): Response
     {
         $title = $request->query->get('title', 'Index');
-
-        // Récupération des variables depuis le YAML
+        
         $projectName = $docConfigLoader->get('projectName', 'DemoProject');
         $logoUrl = $docConfigLoader->get('logoUrl', '/images/logo.svg');
         $projectSource = $docConfigLoader->get('projectSource', 'https://github.com/partITech/DemoProject');

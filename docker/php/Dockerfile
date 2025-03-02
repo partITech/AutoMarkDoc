@@ -24,6 +24,7 @@ RUN mkdir -p /var/www/var/cache /var/www/var/log \
     && chown -R www-data:www-data /var/www/var \
     && chmod -R 775 /var/www/var
 
+RUN git config --global --add safe.directory /var/www
 COPY php.ini /usr/local/etc/php/conf.d/custom.ini
 
 WORKDIR /var/www
