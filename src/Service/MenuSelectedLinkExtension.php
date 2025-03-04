@@ -46,7 +46,5 @@ class MenuSelectedLinkExtension implements ExtensionInterface
         );
 
         $environment->addExtension(new MenuHeadingContextExtension());
-
-
     }
 }

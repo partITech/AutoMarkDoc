@@ -34,18 +34,18 @@ class MenuLinkRenderer implements NodeRendererInterface, XmlNodeRendererInterfac
 
         // Original link (e.g., "intro/quickstart.md")
         $originalUrl = $node->getUrl();
-
-        // 1) Optionally sanitize or forbid directory traversal like ".."
-        //    This is a simple example that just strips out ".."
-        $safeUrl = str_replace('..', '', $originalUrl);
-        // Trim and remove obvious attempts at directory traversal
-        $safeUrl = trim($safeUrl);
-        // Optionally remove any backslashes in case of Windows paths
-        $safeUrl = str_replace('\\', '/', $safeUrl);
-
-
-        // 2) Encode the URL so special chars become safe in query strings
-        $encodedUrl = rawurlencode($safeUrl);
+        $encodedUrl = SafeUrl::parse($originalUrl);
+//        // 1) Optionally sanitize or forbid directory traversal like ".."
+//        //    This is a simple example that just strips out ".."
+//        $safeUrl = str_replace('..', '', $originalUrl);
+//        // Trim and remove obvious attempts at directory traversal
+//        $safeUrl = trim($safeUrl);
+//        // Optionally remove any backslashes in case of Windows paths
+//        $safeUrl = str_replace('\\', '/', $safeUrl);
+//
+//
+//        // 2) Encode the URL so special chars become safe in query strings
+//        $encodedUrl = rawurlencode($safeUrl);
 
         // 3) Retrieve the heading text from node data (added by HeadingContextExtension)
         $heading = $node->data->get('heading') ?? '';

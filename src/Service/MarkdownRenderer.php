@@ -28,18 +28,34 @@ class MarkdownRenderer
 {
     private string $fileParam = 'file';
     private string $titleParam = 'title';
+    private string $docPath;
+    private string $project;
 
     public function __construct(
         #[Autowire('%kernel.project_dir%')] private readonly string $projectDir,
         private readonly CommonMarkConverter $converter,
         private readonly Filesystem $filesystem,
-        private readonly Finder $finder,
-        private readonly string $documentationPath
-    ){}
+        private readonly Finder $finder
+    )
+    {
+    }
+
+    public function setDocPath(string $docPath): self
+    {
+        $this->docPath = $docPath;
+
+        return $this;
+    }
+    public function setProject(string $project): self
+    {
+        $this->project = $project;
+
+        return $this;
+    }
 
     public function getMarkdownFiles(): array
     {
-        $basePath = $this->projectDir . '/' . $this->documentationPath;
+        $basePath = $this->projectDir . '/' . $this->docPath;
 
         if (!$this->filesystem->exists($basePath)) {
             return [];
@@ -105,7 +121,7 @@ class MarkdownRenderer
 
     public function getMarkdownFile(string $file): string|false
     {
-        $filePath = $this->projectDir . '/' . $this->documentationPath . '/' . $file;
+        $filePath = $this->projectDir . '/' . $this->docPath . '/' . $file;
 
         if (!$this->filesystem->exists($filePath)) {
             return false;
@@ -144,8 +160,26 @@ class MarkdownRenderer
             return false;
         }
         // Define your configuration, if needed
-        $config = ['html_input' => 'allow', 'allow_unsafe_links' => false, 'default_attributes' => [BlockQuote::class => ['class' => 'default-blockquote'], ListBlock::class => ['class' => 'default-list-block'], ListItem::class => ['class' => 'default-list-item'], TaskListItemMarker::class => ['class' => 'default-task-list'],], 'heading_permalink' => [//                'insert' => HeadingPermalinkProcessor::INSERT_NONE,
-            'apply_id_to_heading' => true, 'heading_class' => 'heading-item',], 'table_of_contents' => ['html_class' => 'table-of-contents', 'position' => 'top', 'style' => 'bullet', 'min_heading_level' => 1, 'max_heading_level' => 6, 'normalize' => 'as-is', 'placeholder' => null,],
+        $config = [
+            'html_input' => 'allow',
+            'allow_unsafe_links' => false,
+            'default_attributes' => [
+                BlockQuote::class => ['class' => 'default-blockquote'],
+                ListBlock::class => ['class' => 'default-list-block'],
+                ListItem::class => ['class' => 'default-list-item'],
+                TaskListItemMarker::class => ['class' => 'default-task-list'],
+            ],
+            'heading_permalink' => [//                'insert' => HeadingPermalinkProcessor::INSERT_NONE,
+                'apply_id_to_heading' => true, 'heading_class' => 'heading-item',],
+            'table_of_contents' => [
+                'html_class' => 'table-of-contents',
+                'position' => 'top',
+                'style' => 'bullet',
+                'min_heading_level' => 1,
+                'max_heading_level' => 6,
+                'normalize' => 'as-is',
+                'placeholder' => null,
+            ],
 
 
         ];
@@ -161,11 +195,13 @@ class MarkdownRenderer
         $environment->addExtension(new HeadingPermalinkExtension());
         $environment->addExtension(TabbedExtension::bootstrapTheme());
         $environment->addExtension(new TableOfContentsExtension());
+        $environment->addExtension(new ImageUrlRewriterExtension(project: $this->project));
+
 
         $converter = new MarkdownConverter($environment);
 
         $content = file_get_contents($filePath);
-        if(empty($content)) {
+        if (empty($content)) {
             return $this->emptyContent();
         }
         try {
@@ -177,7 +213,8 @@ class MarkdownRenderer
         return $this->separateTableOfContents($html);
     }
 
-    private function emptyContent(): array{
+    private function emptyContent(): array
+    {
         return ['toc' => null, 'content' => null];
     }
 
