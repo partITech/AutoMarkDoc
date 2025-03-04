@@ -1,6 +1,44 @@
 /**
 HEADER
  */
+#projectListDropdownText{
+  color: #a1a1aa;
+  font-weight:700;
+}
+#projectListDropDown{
+  li{
+    margin: 5px 0;
+    &.active{
+      border-top: solid 1px #cf2e2e;
+    }
+  }
+  a{
+    font-weight:700;
+    background-color: transparent;
+    color: #cf2e2e;
+    border-radius: 30px;
+    border: solid 1px transparent;
+    &:hover{
+      border-radius: 40px;
+      transition: 400ms ease;
+      border: solid 1px #ededed;
+      background-color: rgba(239, 239, 239, 0.74);
+    }
+
+    &.active{
+
+      font-weight:400;
+      background-color: transparent;
+      color: #a1a1aa;
+      margin: 10px 0 5px 0;
+      &:hover{
+        border: solid 1px transparent;
+      }
+    }
+  }
+}
+
+
 header {
   transition: background-color 0.5s ease, box-shadow 0.5s ease;
   height: 75px;

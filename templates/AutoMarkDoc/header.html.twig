@@ -29,7 +29,7 @@
 
     <!-- Right Section -->
     <div class="d-flex ">
-        <ul class="navbar-nav flex-row flex-wrap ms-md-auto" id="header-right-links">
+        <ul class="navbar-nav flex-row flex-wrap ms-md-auto " id="header-right-links">
             <li class="nav-item col-6 col-lg-auto d-flex d-md-none" id="search-icon-header"  data-bs-toggle="modal" data-bs-target="#searchModal">
                 <a href="#" class="nav-link py-2 px-0 px-lg-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -38,6 +38,29 @@
                     </svg>
                 </a>
             </li>
+            {% if showSites and sites|length > 0 %}
+                <li class="nav-item col-6 col-lg-auto dropdown dropdown-menu-right">
+                    <a class="nav-link dropdown-toggle" href="#" id="projectListDropdownText" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Projects
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="projectListDropdownText" id="projectListDropDown">
+                        {% for site in sites %}
+                            <li class="{% if site.current %}active{% endif %}">
+                                {% if site.current %}
+                                    <a class="dropdown-item {% if site.current %}active{% endif %}">
+                                        {{ site.name }}
+                                    </a>
+                                {% else %}
+                                    <a class="dropdown-item {% if site.current %}active{% endif %}" href="{{ site.url }}">
+                                        {{ site.name }}
+                                    </a>
+                                {% endif %}
+
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endif %}
             <li class="nav-item col-6 col-lg-auto" id="github-icon-header">
                 <a class="nav-link py-2 px-0 px-lg-2" href="{{ projectSource }}"
                    target="_blank" rel="noopener">
@@ -48,6 +71,7 @@
                     </svg>
                 </a>
             </li>
+
         </ul>
     </div>
 </header>
