@@ -28,7 +28,9 @@ body {
   font-family: system-ui, Arial, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   background-color: #FFFFFF;
 }
-
+div.modal{
+  background-color: white !important;
+}
 .logo-text, #left-menu-label {
   font-weight: 900;
   font-size: 1.5rem;

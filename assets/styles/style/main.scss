@@ -28,7 +28,11 @@ pre[class*="language-"] {
 #main-content {
   text-align: left !important;
 
-
+  img{
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
 
   hr {
     border-color: #18181BFF;
