@@ -39,7 +39,7 @@ docker compose exec php composer install
 >     "segment": "automarkdoc",
 >     "host": "localhost",
 >     "name": "AutoMarkDoc"
->     },
+>     }
 > }'
 > ```
 > 

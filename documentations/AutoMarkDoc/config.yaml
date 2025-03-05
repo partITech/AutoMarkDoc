@@ -3,7 +3,7 @@ defaultDoc: "introduction.md"
 logoUrl: "/images/logo.svg"
 projectSource: "https://github.com/partITech/AutoMarkDoc"
 jumbotronSourceLinkCodeLink: "https://github.com/partITech/AutoMarkDoc"
-enableSearch: true
+enableSearch: false
 jumbotron: true
 jumbotronHeader: "AutoMarkDoc, Effortless Documentation for Open Source"
 jumbotronTextLine: "Automatically transform your project's Markdown files into a sleek, elegant website with modern Bootstrap styling."
