@@ -2,5 +2,5 @@
 /.idea/
 /var/
 /assets/vendor/
-#.env
-#.env.dev
+.env.dev
+compose.override.yaml
