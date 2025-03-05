@@ -21,6 +21,7 @@ class DocumentationConfigLoader
     private string $projectName;
     private string $segment='/';
     private string $scheme;
+    private int $port;
     private ?string $hostPart = null;
 
     public function __construct(
@@ -66,7 +67,16 @@ class DocumentationConfigLoader
             $queryParams = "?"  . $queryParams;
         }
 
-        return $this->scheme .  '://' . $host . '/' . $segment . $queryParams;
+        $port='';
+        if(
+            ($this->scheme === 'https' and $this->port !== '443')
+            or
+            ($this->scheme === 'http' and $this->port !== '80'))
+        {
+            $port = ':' . $this->port;
+        }
+
+        return $this->scheme .  '://' . $host.$port . '/' . $segment . $queryParams;
     }
 
     public function getSitesList(): array
@@ -104,7 +114,7 @@ class DocumentationConfigLoader
         $this->host = trim($request->getHost(), '/');
         $this->path = trim($request->getPathInfo(), '/');
         $this->scheme = $request->getScheme();
-
+        $this->port = $request->getPort();
         $projectName = $this->getProjectFromRequest($this->host, $this->path);
         if(is_null($projectName)){
             $projectName = array_key_first($this->projects);

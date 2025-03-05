@@ -2,3 +2,5 @@
 /.idea/
 /var/
 /assets/vendor/
+#.env
+#.env.dev
