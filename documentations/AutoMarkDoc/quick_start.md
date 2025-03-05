@@ -71,7 +71,7 @@ jumbotronCodeContent: |
   
   This will transform your Markdown files into a Bootstrap-powered website.
 ```
-![AutoMarkDoc.png](/images/yaml_header.png))
+![yaml_header.png](yaml_header.png))
 ### Parameters
 
 1. **`logoUrl`**: Path to your project's logo. It is recommended to store it in `public/images/`.
