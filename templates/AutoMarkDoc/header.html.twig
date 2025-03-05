@@ -30,7 +30,7 @@
     <!-- Right Section -->
     <div class="d-flex ">
         <ul class="navbar-nav flex-row flex-wrap ms-md-auto " id="header-right-links">
-            <li class="nav-item col-6 col-lg-auto d-flex d-md-none" id="search-icon-header"  data-bs-toggle="modal" data-bs-target="#searchModal">
+            <li class="nav-item col-auto d-flex d-md-none" id="search-icon-header"  data-bs-toggle="modal" data-bs-target="#searchModal">
                 <a href="#" class="nav-link py-2 px-0 px-lg-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-search" viewBox="0 0 16 16">
@@ -39,7 +39,7 @@
                 </a>
             </li>
             {% if showSites and sites|length > 0 %}
-                <li class="nav-item col-6 col-lg-auto dropdown dropdown-menu-right">
+                <li class="nav-item col-auto dropdown dropdown-menu-right">
                     <a class="nav-link dropdown-toggle" href="#" id="projectListDropdownText" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Projects
                     </a>
@@ -61,7 +61,7 @@
                     </ul>
                 </li>
             {% endif %}
-            <li class="nav-item col-6 col-lg-auto" id="github-icon-header">
+            <li class="nav-item col-auto col-lg-auto" id="github-icon-header">
                 <a class="nav-link py-2 px-0 px-lg-2" href="{{ projectSource }}"
                    target="_blank" rel="noopener">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 499.36" role="img"><title>
