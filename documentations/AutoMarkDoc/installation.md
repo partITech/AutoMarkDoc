@@ -30,11 +30,19 @@ docker compose exec php composer install
 ```
 
 > [!IMPORTANT]
-> By default project load this documentation. 
-> This is configured by the env 
-> `DOCUMENTATION_DIR_PATH=documentations/AutoMarkDoc`
-> 
+> a minimal **.env** is required 
+> See the [General configuration](env.md) for more information
+> ```dotenv
+> DOCUMENTATION_PROJECTS='{
+>     "automarkdoc": {
+>     "path": "documentations/AutoMarkDoc",
+>     "segment": "automarkdoc",
+>     "host": "localhost",
+>     "name": "AutoMarkDoc"
+>     },
+> }'
+> ```
 > 
 > Update this in the .env{.dev,.test} to use your files. 
 > 
-> See the [Quick Start](quick_start.md) section to learn more about basic configurations
+> See the [General configuration](env.md) section to learn more about basic configurations
