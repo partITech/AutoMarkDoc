@@ -7,5 +7,12 @@
 
 ---
 ## Usage
-- [Graphical Examples](markdown_examples.md)
+- [Titles and Texts](usage/titles_texts.md)
+- [Code Examples](usage/code_examples.md)
+- [Admonitions](usage/admonitions.md)
+- [Tabbed Content](usage/tabbed_content.md)
+- [Task List](usage/task_list.md)
+- [Lists](usage/lists.md)
+- [Quotes](usage/quotes.md)
+- [Strikethrough Extension](usage/strikethrough.md)
 ---
