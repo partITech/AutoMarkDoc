@@ -8,6 +8,7 @@
 ## Checkout the project
 ```shell
 mkdir AutoMarkdoc
+cd AutoMarkdoc
 git clone https://github.com/partITech/AutoMarkDoc .
 ```
 ## Local server instance
