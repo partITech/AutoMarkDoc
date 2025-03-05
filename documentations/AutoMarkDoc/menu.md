@@ -3,6 +3,7 @@
 - [Installation](installation.md)
 - [Quick Start](quick_start.md)
 - [General configuration](env.md)
+- [Symfony app in production](prod.md)
 
 ---
 ## Usage
