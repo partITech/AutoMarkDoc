@@ -18,7 +18,7 @@ final class AutoMarkDoc extends AbstractController
         '/{slug}',
         name: 'app_automarkdoc_index',
         requirements: [
-            'slug' => '^(?!get-image|image|assets)[^.]*(?<!\.(js|png|css|jpg|jpeg|gif|svg|json|woff|woff2|ttf|eot))$'
+            'slug' => '^(?!get-image|image|assets)[^.]*$'
         ],
         defaults: ['slug' => '']
     )]
