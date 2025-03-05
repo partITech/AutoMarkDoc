@@ -8,7 +8,3 @@
 ## Usage
 - [Graphical Examples](markdown_examples.md)
 ---
-## Extras
-- [Contributing](contributing.md)
-- [References & Resources](references.md)
----
