@@ -32,7 +32,7 @@
   ->add($serperStep)
   ->add($trafilaturaStep)
   ->add($chat);
-  ```
+  \```
 
 - ===php 2
 
