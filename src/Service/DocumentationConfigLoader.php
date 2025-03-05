@@ -3,11 +3,8 @@
 namespace App\Service;
 
 use Exception;
-use Partitech\SonataExtra\Repository\ContactRepository;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpFoundation\UrlHelper;
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Config\FileLocator;
@@ -19,10 +16,9 @@ class DocumentationConfigLoader
     private string $path;
     private string $projectPath;
     private string $projectName;
-    private string $segment='/';
     private string $scheme;
     private int $port;
-    private ?string $hostPart = null;
+
 
     public function __construct(
         #[Autowire('%kernel.project_dir%')] private readonly string $projectDir,
@@ -33,7 +29,6 @@ class DocumentationConfigLoader
 
     public function redirect(string $file, string $title): string|bool
     {
-
         if(is_null($this->projects[$this->projectName]['host']) || empty($this->projects[$this->projectName]['host']) || !isset($this->projects[$this->projectName]['host'])){
             $host = $this->host;
         }else{
@@ -115,12 +110,7 @@ class DocumentationConfigLoader
         $this->path = trim($request->getPathInfo(), '/');
         $this->scheme = $request->getScheme();
         $this->port = $request->getPort();
-        $projectName = $this->getProjectFromRequest($this->host, $this->path);
-        if(is_null($projectName)){
-            $projectName = array_key_first($this->projects);
-        }
-        $this->projectName = $projectName;
-        $this->projectPath = $this->getProjectPath();
+        $this->projectName = $this->getProjectFromRequest($this->host, $this->path);
 
         try {
             $file = $this->getFilePath( 'config.yaml');
@@ -150,8 +140,6 @@ class DocumentationConfigLoader
         }
 
         $fileLocator = new FileLocator([$basePath]);
-
-        $fileLocator = new FileLocator([$basePath]);
         try {
             $file = $fileLocator->locate($file, null, true);
         }catch (\Throwable $e){
@@ -166,45 +154,23 @@ class DocumentationConfigLoader
         return $this->config[$key] ?? $default;
     }
 
-    public function getAll(): array
-    {
-        return $this->config;
-    }
-
     public function getProjectPath(): ?string
     {
         return $this->projects[$this->projectName]['path'] ?? null;
     }
 
-    public function getProjectFromRequest(string $host, string $path): ?string
+    public function getProjectFromRequest(string $host, string $path): string
     {
-        $segments = array_filter(explode('/', trim($path, '/')));
-
-        // Case 1 : domaine/projet1
-        if (count($segments) >= 1 && isset($this->projects[$segments[0]])) {
-            $this->segment = $segments[0];
-            return $segments[0];
+        foreach ($this->projects as $project => $config) {
+            if (trim($config['segment'], '/') === $path && $config['host'] === $host) {
+                return $project;
+            }
         }
-
-        // Case 2 : projet1.domaine
-        $hostParts = explode('.', $host);
-
-        if (count($hostParts) >= 2 && isset($this->projects[$hostParts[0]])) {
-            $this->hostPart = $hostParts[0];
-            return $hostParts[0];
-        }
-
-        return null;
+        return array_key_first($this->projects);
     }
 
     public function getProjectName(): string
     {
         return $this->projectName;
     }
-
-    public function getSegment(): string
-    {
-        return $this->segment;
-    }
-
 }

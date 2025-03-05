@@ -14,8 +14,16 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class AutoMarkDoc extends AbstractController
 {
-    #[Route('/{slug}', name: 'app_automarkdoc_index', requirements: ['slug' => '^(?!get-image$).+'], defaults: ['slug' => ''])]
-    public function index(Request $request, MarkdownRenderer $markdownRenderer, DocumentationConfigLoader $docConfigLoader): Response
+    #[Route(
+        '/{slug}',
+        name: 'app_automarkdoc_index',
+        // Ici on empêche tout slug qui se termine par .quelqueChose
+        // Et on continue d’exclure "get-image"
+        requirements: [
+            'slug' => '^(?!get-image$)(?!.*\\.[a-zA-Z0-9]+$).*'
+        ],
+        defaults: ['slug' => '']
+    )]    public function index(Request $request, MarkdownRenderer $markdownRenderer, DocumentationConfigLoader $docConfigLoader): Response
     {
 
         $docConfigLoader->setRequest($request);
