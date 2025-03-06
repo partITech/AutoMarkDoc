@@ -1,5 +1,8 @@
 # AutoMarkDoc
 
+> [!TIP]
+> See it in action on the [official documentation](https://automarkdoc.partitech.com/)
+
 AutoMarkDoc is an open-source tool that transforms Markdown-based project documentation into a modern, responsive website. Built with Symfony and Bootstrap, it enables effortless documentation generation with minimal setup.
 
 ## 🚀 Features
