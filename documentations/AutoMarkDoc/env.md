@@ -4,8 +4,8 @@ You can use the same application to manage multiple documentations.
 Here’s how to set it up:
 
 ```shell
-cd documentations
-git submodule add https://github.com/partITech/sonata-extra
+## checkout project
+git submodule add https://github.com/partITech/sonata-extra  documentations/sonata-extra
 
 ## update docs later
 git submodule update --remote
