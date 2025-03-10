@@ -220,24 +220,23 @@ class MarkdownRenderer
 
     private function separateTableOfContents($html): array
     {
-        // Charger le HTML dans DOMDocument
         $dom = new DOMDocument();
-        libxml_use_internal_errors(true); // Pour éviter les erreurs liées aux balises HTML mal formées
-        $dom->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
+        libxml_use_internal_errors(true);
+        $dom->loadHTML(htmlentities($html, ENT_QUOTES | ENT_HTML5, 'UTF-8'));
         libxml_clear_errors();
 
-        // Récupérer la table des matières
+
         $xpath = new DOMXPath($dom);
         $tocNode = $xpath->query('//ul[contains(@class, "table-of-contents")]')->item(0);
 
-        // Extraire la table des matières sous forme de HTML
+
         $tableOfContents = "";
         if ($tocNode) {
             $tableOfContents = $dom->saveHTML($tocNode);
-            $tocNode->parentNode->removeChild($tocNode); // Supprimer les TOC du document
+            $tocNode->parentNode->removeChild($tocNode);
         }
 
-        // Récupérer le reste du contenu après suppression des TOC
+
         $mainContent = $dom->saveHTML();
 
         return ['toc' => $tableOfContents, 'content' => $mainContent];

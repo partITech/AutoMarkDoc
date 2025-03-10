@@ -14,6 +14,35 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class AutoMarkDoc extends AbstractController
 {
+
+    #[Route('/get-image', name: 'app_automarkdoc_getimage')]
+    public function getImage(
+        Request $request,
+        DocumentationConfigLoader $docConfigLoader
+    ): Response
+    {
+        $img = $request->query->get('img');
+        $project = $request->query->get('project');
+
+        // Vérifiez que les paramètres sont présents
+        if (!$img || !$project) {
+            throw new NotFoundHttpException('Image or project parameter is missing.');
+        }
+        $docConfigLoader->setProject($project);
+        // Validez les paramètres pour éviter les traversées de répertoires
+        if (preg_match('/\.\./', $img) || preg_match('/\.\./', $project)) {
+            throw new NotFoundHttpException('Invalid path.');
+        }
+
+        try{
+            $filePath = $docConfigLoader->getFilePath($img);
+        }catch (\Exception $e){
+            throw new NotFoundHttpException('File not found.');
+        }
+
+        return new BinaryFileResponse($filePath);
+    }
+
     #[Route(
         '/{slug}',
         name: 'app_automarkdoc_index',
@@ -82,31 +111,5 @@ final class AutoMarkDoc extends AbstractController
     }
 
 
-    #[Route('/get-image', name: 'app_automarkdoc_getimage')]
-    public function getImage(
-        Request $request,
-        DocumentationConfigLoader $docConfigLoader
-    ): Response
-    {
-        $img = $request->query->get('img');
-        $project = $request->query->get('project');
 
-        // Vérifiez que les paramètres sont présents
-        if (!$img || !$project) {
-            throw new NotFoundHttpException('Image or project parameter is missing.');
-        }
-        $docConfigLoader->setProject($project);
-        // Validez les paramètres pour éviter les traversées de répertoires
-        if (preg_match('/\.\./', $img) || preg_match('/\.\./', $project)) {
-            throw new NotFoundHttpException('Invalid path.');
-        }
-
-        try{
-            $filePath = $docConfigLoader->getFilePath($img);
-        }catch (\Exception $e){
-            throw new NotFoundHttpException('File not found.');
-        }
-
-        return new BinaryFileResponse($filePath);
-    }
 }
