@@ -222,7 +222,7 @@ class MarkdownRenderer
     {
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
-        $dom->loadHTML(htmlentities($html, ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+        $dom->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
         libxml_clear_errors();
 
 
