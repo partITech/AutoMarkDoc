@@ -57,6 +57,7 @@ final class AutoMarkDoc extends AbstractController
         $docConfigLoader->setRequest($request);
 
         $projectName = $docConfigLoader->get('projectName', 'DemoProject');
+        $pageTitle = $docConfigLoader->get('title', $projectName);
         $logoUrl = $docConfigLoader->get('logoUrl', '/images/logo.svg');
         $projectSource = $docConfigLoader->get('projectSource', 'https://github.com/partITech/DemoProject');
         $jumbotronSourceLinkCodeLink = $docConfigLoader->get('jumbotronSourceLinkCodeLink', 'https://github.com/partITech/DemoProject');
@@ -72,7 +73,8 @@ final class AutoMarkDoc extends AbstractController
         $defaultDoc = $docConfigLoader->get('defaultDoc', 'index.md');
         $logoHref = $docConfigLoader->get('logoHref', $docConfigLoader->createUrl($docConfigLoader->getProjectName()));
         $currentLink = $request->query->get('file', $defaultDoc);
-        $title = $request->query->get('title', $projectName);
+        $title = $request->query->get('title', 'Index');
+
 
         if($redirect = $docConfigLoader->redirect($currentLink, $title)){
             return  new RedirectResponse($redirect);
@@ -90,6 +92,7 @@ final class AutoMarkDoc extends AbstractController
         return $this->render('AutoMarkDoc/index.html.twig', [
             'showSites' => true,
             'sites'=> $docConfigLoader->getSitesList(),
+            'pageTitle'   => $pageTitle,
             'projectName' => $projectName,
             'logoUrl' => $logoUrl,
             'menu'    => $menu,
