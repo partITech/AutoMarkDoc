@@ -70,7 +70,7 @@ final class AutoMarkDoc extends AbstractController
         $jumbotronCodeLang = $docConfigLoader->get('jumbotronCodeLang', 'md');
         $jumbotronCodeContent = $docConfigLoader->get('jumbotronCodeContent', '# DemoProject ...');
         $defaultDoc = $docConfigLoader->get('defaultDoc', 'index.md');
-
+        $logoHref = $docConfigLoader->get('logoHref', $docConfigLoader->createUrl($docConfigLoader->getProjectName()));
         $currentLink = $request->query->get('file', $defaultDoc);
         $title = $request->query->get('title', 'Index');
 
@@ -107,6 +107,7 @@ final class AutoMarkDoc extends AbstractController
             'jumbotronGetStartedLink' => $jumbotronGetStartedLink,
             'jumbotronCodeLang'       => $jumbotronCodeLang,
             'jumbotronCodeContent'    => $jumbotronCodeContent,
+            'logoHref'                => $logoHref,
         ]);
     }
 

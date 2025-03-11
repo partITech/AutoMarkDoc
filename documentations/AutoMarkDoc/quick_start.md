@@ -45,6 +45,7 @@ Vous devez également créer un fichier `config.yaml` avec l'ensemble des inform
 ```yaml
 projectName: "AutoMarkDoc"
 defaultDoc: "introduction.md"
+logoHref: "https://my-website.com/"
 logoUrl: "/images/logo.svg"
 projectSource: "https://github.com/partITech/AutoMarkDoc"
 jumbotronSourceLinkCodeLink: "https://github.com/partITech/AutoMarkDoc"
@@ -85,7 +86,9 @@ jumbotronCodeContent: |
 9. **`jumbotronSourceLinkCodeLabel`**: Label text for the second button in the jumbotron.
 10. **`jumbotronCodeContent`**: Predefined code snippet displayed within the jumbotron.
 
+
 ### Additional settings
 - **`defaultDoc`**: Specifies the main documentation page to display by default.
 - **`enableSearch`**: Enables a search feature (currently disabled by default, planned for future implementation).
 - **`jumbotron`**: Defines whether the jumbotron should be displayed on the default page.
+- **`logoHref`**: logo href if not set wil use the current project's doc url.
