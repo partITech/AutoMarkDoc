@@ -72,7 +72,7 @@ final class AutoMarkDoc extends AbstractController
         $defaultDoc = $docConfigLoader->get('defaultDoc', 'index.md');
         $logoHref = $docConfigLoader->get('logoHref', $docConfigLoader->createUrl($docConfigLoader->getProjectName()));
         $currentLink = $request->query->get('file', $defaultDoc);
-        $title = $request->query->get('title', 'Index');
+        $title = $request->query->get('title', $projectName);
 
         if($redirect = $docConfigLoader->redirect($currentLink, $title)){
             return  new RedirectResponse($redirect);
