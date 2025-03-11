@@ -1,6 +1,7 @@
 projectName: "AutoMarkDoc"
 defaultDoc: "introduction.md"
 logoUrl: "/images/logo.svg"
+title: "AutoMarkDoc, Effortless Documentation for Open Source"
 logoHref: "https://www.partitech.com/"
 projectSource: "https://github.com/partITech/AutoMarkDoc"
 jumbotronSourceLinkCodeLink: "https://github.com/partITech/AutoMarkDoc"
