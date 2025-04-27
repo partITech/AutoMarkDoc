@@ -14,6 +14,7 @@ use League\CommonMark\Extension\CommonMark\Node\Block\ListItem;
 use League\CommonMark\Extension\DefaultAttributes\DefaultAttributesExtension;
 use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
 use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
+use League\CommonMark\Extension\Table\Table;
 use League\CommonMark\Extension\TableOfContents\TableOfContentsExtension;
 use League\CommonMark\Extension\TaskList\TaskListItemMarker;
 use League\CommonMark\MarkdownConverter;
@@ -23,6 +24,7 @@ use Symfony\Component\Finder\Finder;
 use Throwable;
 use Zenstruck\CommonMark\Extension\GitHub\AdmonitionExtension;
 use Zenstruck\CommonMark\Extension\TabbedExtension;
+use League\CommonMark\Extension\Table\TableExtension;
 
 class MarkdownRenderer
 {
@@ -195,6 +197,8 @@ class MarkdownRenderer
         $environment->addExtension(new HeadingPermalinkExtension());
         $environment->addExtension(TabbedExtension::bootstrapTheme());
         $environment->addExtension(new TableOfContentsExtension());
+        $environment->addRenderer(Table::class, new TableRenderer());
+        $environment->addExtension(new TableExtension());
         $environment->addExtension(new ImageUrlRewriterExtension(project: $this->project));
 
 

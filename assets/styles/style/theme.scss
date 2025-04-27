@@ -301,4 +301,90 @@ div.modal{
     margin-left: 1.5em;
   }
 
+
+
 }
+
+
+/** TABLE CONTENT */
+$table-border-color: #dee2e6;
+$table-bg-header: #f8f9fa;
+$table-hover-bg: #f1f3f5;
+$table-radius: 0.75rem;
+$table-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+$table-font-size: 0.9em;
+$table-header-font-size: 0.8em;
+$code-bg: transparent;
+$code-color: #cf2e2e;
+
+.table {
+  border: 1px solid $table-border-color;
+  border-radius: $table-radius;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  box-shadow: $table-shadow;
+  font-size: $table-font-size;
+
+  code {
+    background-color: $code-bg;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+    font-size: 0.95em;
+    color: $code-color;
+  }
+
+  thead {
+    th {
+      background-color: $table-bg-header;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 2px solid $table-border-color;
+      font-size: $table-header-font-size;
+      text-align: center;
+
+      &:first-child {
+        border-top-left-radius: $table-radius;
+      }
+
+      &:last-child {
+        border-top-right-radius: $table-radius;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: $table-hover-bg;
+      }
+
+      &:last-child {
+        td {
+          &:first-child {
+            border-bottom-left-radius: $table-radius;
+          }
+
+          &:last-child {
+            border-bottom-right-radius: $table-radius;
+          }
+        }
+      }
+    }
+  }
+
+  td, th {
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+  }
+}
+
+
+
+
+
+
+
